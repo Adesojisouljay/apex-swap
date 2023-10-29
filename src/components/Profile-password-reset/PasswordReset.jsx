@@ -39,8 +39,6 @@ export const ResetPasswordForm = () => {
       } else {
         setStep("fail")
       }
-     console.log(res)
-
     } catch (error) {
       // Handle any errors that occur during the password reset
       console.error("Error resetting password:", error);
@@ -54,7 +52,6 @@ export const ResetPasswordForm = () => {
   const sendRestToken = async () => {
     try {
       const token = await sendPasswordResetToken(userData.email)
-      console.log(token)
       setStep("2")
     } catch (error) {
       console.log(error)

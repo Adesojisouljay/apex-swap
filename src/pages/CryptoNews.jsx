@@ -9,13 +9,7 @@ const CryptoNews = () => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    // Replace this with your API call to fetch cryptocurrency news data
-    // Example API call:
-    // fetch('https://api.example.com/cryptocurrency-news')
-    //   .then((response) => response.json())
-    //   .then((data) => setNewsData(data));
 
-    // For this example, we'll simulate the data
     const simulatedData = [
       {
         id: 1,
@@ -97,18 +91,11 @@ const fetchCryptoNews = async () => {
       }
     );
 
-    // Handle the response data here
     const newsData = response.data.data;
-    console.log(newsData);
-    // Process and display the news articles in your application
   } catch (error) {
     console.error('Error fetching crypto news:', error);
   }
 };
-
-// Call the function to fetch crypto news
-
-
 
   return (
     <div className="crypto-news">

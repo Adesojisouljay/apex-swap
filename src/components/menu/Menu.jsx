@@ -24,7 +24,6 @@ import { removeAccessToken } from "../../constants/vairables";
 const Menu = () => {
     const user = useSelector(state =>state.user)
     useEffect(()=>{
-        // console.log(user)
     })
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -109,16 +108,12 @@ const Menu = () => {
                 <DarkModeOutlinedIcon/>
                 <span>Switch Mode</span>
             </div>
-            {/* </Link> */}
-            {/* <Link to="/"> */}
                 <div className="item" onClick={handleLogout}>
                     <LogoutIcon/>
                     <span>Logout</span>
                 </div>
-            {/* </Link> */}
         </div>
     </div>
-    // </div>
   )
 }
 

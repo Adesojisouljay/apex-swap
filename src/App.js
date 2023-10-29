@@ -21,7 +21,6 @@ import PrivateRoute from './private-routes/PrivateRoutes';
 function App() {
   const location = useLocation();
   const userData = useSelector((state) => state);
-  // console.log(userData);
   const excludedPaths = ['/', '/login', '/register', '/test-keychain'];
   const shouldRenderSideBar = userData && !excludedPaths.includes(location.pathname);
   const currentUser = true;
