@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./home.scss"; // Make sure to create this SCSS file
+import "./home.scss";
 import { getMarketData } from "../api/coingecko";
 import CryptoBackground from "./../assets/blockchain.webp";
 import { Link } from "react-router-dom";
@@ -22,7 +22,6 @@ const Home = () => {
     const icons = await data?.map(image => image.image);
     setImages(icons);
     setAllData(data)
-    // console.log(data)
   }
 
   return (

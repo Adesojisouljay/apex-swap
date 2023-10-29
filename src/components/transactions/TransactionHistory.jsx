@@ -9,20 +9,19 @@ import { useSelector } from "react-redux";
 const TransactionHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [transactionsPerPage] = useState(10); // Number of transactions per page
+  const [transactionsPerPage] = useState(10);
   const [loading, setLoading] = useState(false)
 
   const userData = useSelector(state => state.user.userData)
 
   useEffect(() => {
     getHistory();
-  }, [currentPage]); // Fetch transactions when the page changes
+  }, [currentPage]);
 
   const getHistory = async () => {
     try {
       setLoading(true)
       const transaction = await fetchTransactionHistory(userData.username);
-      console.log(transaction?.data?.accountHistory);
       if (transaction?.data?.accountHistory){
         setTransactions(transaction?.data?.accountHistory);
         setLoading(false)
@@ -33,15 +32,12 @@ const TransactionHistory = () => {
     }
   };
 
-  // Calculate the indexes of transactions to display on the current page
   const indexOfLastTransaction = currentPage * transactionsPerPage;
   const indexOfFirstTransaction = indexOfLastTransaction - transactionsPerPage;
   const currentTransactions = transactions?.slice(
     indexOfFirstTransaction,
     indexOfLastTransaction
   );
-
-  // console.log(currentTransactions)
 
   return (
     <div className="transaction">

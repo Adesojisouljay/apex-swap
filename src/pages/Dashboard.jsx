@@ -16,7 +16,6 @@ const DashBoard = () => {
 
   const getWallet = async () => {
     const wallets  = await getUserWallet();
-    console.log(wallets)
     dispatch(setWallet(wallets))
 }
 

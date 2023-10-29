@@ -15,13 +15,8 @@ export const WithdrawalModal = (props) => {
     const [error, setError] = useState("")
 
   const handleWithdrawal = () => {
-    // Add logic to handle the withdrawal action here
-    // You can access the withdrawalAmount state to get the amount entered by the user
-    // Don't forget to validate and perform any necessary actions
-    // Once the action is complete, you can call onClose() to close the modal
-    // Example: Withdraw funds and then close the modal
+  
     console.log(`Withdrawal amount: ${withdrawalAmount}`);
-    // Perform withdrawal logic here...
     
   };
 
@@ -105,7 +100,6 @@ export const DepositModal = (props) => {
 
   const user = useSelector(state =>state.user);
     const { userWallets } = user.wallet
-    console.log("wallet modal", userWallets)
 
     // const compressedBtcAddress = `${btcAddress.substring(0, 3)
     // }...${btcAddress.substring(btcAddress.length - 3)}`;
@@ -117,23 +111,19 @@ export const DepositModal = (props) => {
     }
 
 
-  // Define the token info mapping
   const tokenInfo = {};
 
-  // Populate the mapping object
   userWallets.forEach((token) => {
     const tokenType = token.type.toLowerCase();
     const tokenAddress = token.address;
     const tokenMemo = token.userMemo;
   
-    // Assign the address and memo to the token type in the mapping object
     tokenInfo[tokenType] = {
       address: tokenAddress,
       memo: tokenMemo,
     };
   });
 
-  // Get the selected token's info
   const selectedTokenInfo = tokenInfo[selectedToken];
 
   return (
@@ -222,21 +212,16 @@ export const TransferModal = (props) => {
         );
         
         if (response.status === 200 && response.data.success) {
-        // Transfer was successful
         setMsg(response?.data?.message);
         setStep(3);
-        console.log(msg)
         setLoading(false)
       } else {
-        console.log(response)
-        // Transfer failed, display the error message from the response
         setError(response.response?.data?.message || response.response?.data?.error);
         setLoading(false)
         setStep(3);
       }
     } catch (error) {
       console.error('Transfer error:', error);
-      // Handle other errors here
       setLoading(false)
       setStep(3);
       setError(error.response.data.error);
@@ -308,16 +293,9 @@ export const TransferModal = (props) => {
             </div>
             <div className="buttons">
               <button onClick={() => setStep(1)}>Cancel</button>
-              {/* <button onClick={()=>{
-                 console.log(amount)
-                 console.log(Number(amount))
-                handleTransfer()
-                }}>Confirm</button> */}
                 <ButtonSpinner 
                 isLoading={loading}
                 onClick={()=>{
-                  console.log(amount)
-                  console.log(Number(amount))
                  handleTransfer()
                  }}
                 >

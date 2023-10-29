@@ -4,10 +4,9 @@ export const getUsername = async (id) => {
     try {
         const userProfile = await getUserProfile(id);
         const username = userProfile?.username;
-        // console.log(userProfile?.username)
         return username
         
     } catch (error) {
-        // console.log(error)
+        console.log(error)
     }
 }

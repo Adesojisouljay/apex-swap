@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./login.scss";
-import { loginUser } from "../api/apex"; // Import the loginUser function
-import Cookies from 'js-cookie'; // Import js-cookie
+import { loginUser } from "../api/apex";
+import Cookies from 'js-cookie';
 import { getActiveUser } from "../helpers/access-token";
 import { setUser } from "../redux/userSlice";
 import { setWallet } from "../redux/walletSlice";
@@ -27,31 +27,26 @@ const Login = () => {
 
   useEffect(() => {
     try {
-      const token = Cookies.get('token'); // Use Cookies.get() instead of localStorage.getItem()
+      const token = Cookies.get('token');
       if (token) {
 
         if (token) {
           try {
-            const tokenPayload = JSON.parse(atob(token.split('.')[1])); // Decode the token payload
-            const tokenExpiration = tokenPayload.exp * 1000; // Convert expiration to milliseconds
+            const tokenPayload = JSON.parse(atob(token.split('.')[1]));
+            const tokenExpiration = tokenPayload.exp * 1000;
         
-            // Get the current timestamp in milliseconds
             const currentTimestamp = Date.now();
         
             if (currentTimestamp < tokenExpiration) {
-              // Token is still valid, proceed with the authenticated request
+             
               console.log('Token is valid');
-              // navigate('/dashboard');
             } else {
-              // Token has expired, handle accordingly (e.g., prompt user to re-login)
               console.log('session has expired');
             }
           } catch (error) {
-            // Token decoding or parsing error, handle it (e.g., user is not authenticated)
             console.error('Token decoding or parsing error:', error);
           }
         } else {
-          // No token found, user is not authenticated
           console.log('User is not authenticated');
         }
 
@@ -77,10 +72,7 @@ const Login = () => {
       const response = await loginUser(formData.email, formData.password);
       const user = await getActiveUser();
       const wallets = await getUserWallet();
-      console.log(wallets)
-      console.log(user)
   
-      // Dispatch the setUser and setWallet actions with the user data and wallets data.
       dispatch(login({accessToken: response.token}));
       dispatch(setUser(user));
       dispatch(setWallet(wallets));
@@ -90,10 +82,8 @@ const Login = () => {
       console.error('Login error:', error);
   
       if (error?.response?.data?.error) {
-        // Handle specific error messages, if needed.
         setLoginError(error.response.data.error);
       } else {
-        // Handle a more general error message.
         setLoginError('An error occurred during login.');
       }
     } finally {
