@@ -1,0 +1,201 @@
+.main {
+  flex: 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #0a0711;
+  color: whitesmoke;
+  padding: 50px;
+  
+  .wallet {
+      background-color: inherit;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0px;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      position: relative;
+
+      .top {
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        
+        .top-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #191521;
+            padding: 20px;
+
+            .balance{
+              h3{
+                font-size: 20px;
+                font: bold;
+              }
+            }
+
+          button {
+            width: 200px;
+            background-color: #15121d;
+            padding: 10px;
+            border: none;
+            color: whitesmoke;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+          }
+        }
+
+      }
+
+      .wallet-container{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        color: inherit;
+        
+        .left {
+          flex: 1;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #191521;;
+          
+          .asset {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #15121d;
+            border-radius: 5px;
+  
+            .top{
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              
+              
+              img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+              }
+              
+              .token {
+                display: flex;
+                align-items: center;
+                // color: #1d1d1d;
+                
+                span {
+                  font-weight: bold;
+                }
+              }
+              
+              .price{
+                
+                span{
+                  // color: #1d1d1d;
+                  color: inherit;
+                }
+              }
+
+              .bottom{
+                span{
+                  color: whitesmoke;
+                }
+              }
+      
+              // .copy-icon {
+              //   display: flex;
+              //   align-items: center;
+              //   cursor: pointer;
+      
+              //   span {
+              //     margin-right: 10px;
+              //   }
+      
+              //   svg {
+              //     font-size: 1.5rem;
+              //     color: #007bff; /* Match the primary color */
+              //   }
+              // }
+            }
+    
+    
+            .bottom {
+              color: #1d1d1d;
+              display: flex;
+              justify-content: space-between;
+              // margin-top: 10px;
+            }
+          }
+        }
+    
+        .center {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+          .top {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 20px;
+              // color: #1d1d1d;
+              border-radius: 10px;
+              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+              padding: 20px;
+  
+            button {
+              width: 100px;
+              background-color: #581329,; /* Match the primary color */
+              padding: 10px;
+              border: none;
+              color: whitesmoke;
+              border-radius: 5px;
+              font-size: 1.2rem;
+              cursor: pointer;
+            }
+          }
+    
+          hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 1px solid #ccc;
+          }
+    
+      
+        }
+      }
+  
+  
+      .right {
+        flex: 1;
+        // background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+  
+      .copied {
+        background-color: #1e080f;/* Match the primary color */
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        position: absolute;
+        right: 100px;
+        top: 0;
+      }
+    }
+  }
+  

@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+
+}
+*::-webkit-scrollbar {
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+hr{
+    height: 1px;
+    width: 100%;
+    margin: 10px 0;
+}
+
+option{
+    background-color: #0a0711;
+    color: whitesmoke;
+}
+
+.page-container{
+    display: flex;
+    background-color: #0a0711;
+    color: whitesmoke;
+}
+
+.svg{
+    cursor: pointer;
+}
+
+// Default (day) theme
+:root {
+    --menu-background: #0a0711;
+    --menu-text: #fff;
+    --menu-item-hover: linear-gradient(to bottom right, #0a0711, #181717);
+  }
+  
+  // Night theme
+  .night-theme {
+    --menu-background: #000; // Dark background color
+    --menu-text: #fff; // White text color
+    --menu-item-hover: linear-gradient(to bottom right, #333, #222); // Dark hover background gradient
+  }
+  
